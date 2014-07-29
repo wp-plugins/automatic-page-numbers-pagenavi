@@ -1,0 +1,39 @@
+.page_navistyle {
+    text-align: center;
+}
+ 
+.page_navistyle li {
+    display: inline;
+    list-style: none;
+    margin: 5px 2px;
+}
+ 
+.page_navistyle li.current span {
+    color: #000;
+    font-weight: bold;
+    display: inline-block;
+    padding: 3px 7px;
+    background: #fee;
+    border: solid 1px #fcc;
+}
+ 
+.page_navistyle li a {
+    color: #333;
+    padding: 3px 7px;
+    background: #eee;
+    display: inline-block;
+    border: solid 1px #999;
+    text-decoration: none;
+}
+ 
+.page_navistyle li a:hover {
+    color: #f00;
+}
+ 
+.page_navistyle li.page_nums span {
+    color: #fff;
+    padding: 3px 7px;
+    background: #666;
+    display: inline-block;
+    border: solid 1px #333;
+}
