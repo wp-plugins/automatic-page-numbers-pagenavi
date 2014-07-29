@@ -11,10 +11,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Automatically adds page numbers for easier navigation.
 
 
-The previous/next links of your theme will remain, if you would like to have those removed you will have to edit your theme (if you don't know how ask your theme support or the wordpress forum).
-
-Features: Automatic Page Numbers, PageNavi, Easier Navigation, Pagination, Numbering, Page Numbering, Automatical PageNavi
-
 == Description ==
 
 Automatically adds page numbers for easier navigation.
