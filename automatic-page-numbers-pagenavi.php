@@ -3,7 +3,7 @@
 Plugin Name: Automatic Page Numbers - PageNavi
 Plugin URI:
 Description: Automatically adds page numbers for easier navigation
-Author: Seo101
+Author: <a href="http://www.seo101.net">Seo101</a>
 Version: 1.00
 License: GPLv2  or later
 */
