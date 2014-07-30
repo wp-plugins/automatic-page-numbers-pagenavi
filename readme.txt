@@ -10,12 +10,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Automatically adds page numbers for easier navigation.
 
-Plugin homepage: <a href="http://www.seo101.net/automatic-page-numbers-pagenavi-wordpress/">http://www.seo101.net/automatic-page-numbers-pagenavi-wordpress/</a>
-
 == Description ==
 
 Automatically adds page numbers for easier navigation.
 
+Plugin homepage: <a href="http://www.seo101.net/automatic-page-numbers-pagenavi-wordpress/">http://www.seo101.net/automatic-page-numbers-pagenavi-wordpress/</a>
 
 == Installation ==
 
