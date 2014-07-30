@@ -1,5 +1,5 @@
 === Automatic Page Numbers - PageNavi ===
-Contributors: 
+Contributors: seo101
 Donate link: 
 Tags: pagination, page numbers, navigation, numbering, pagenavi
 Requires at least: 3.5
