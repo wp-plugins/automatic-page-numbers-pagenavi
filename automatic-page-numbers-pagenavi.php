@@ -4,7 +4,7 @@ Plugin Name: Automatic Page Numbers - PageNavi
 Plugin URI:
 Description: Automatically adds page numbers for easier navigation
 Author: <a href="http://www.seo101.net">Seo101</a>
-Version: 1.00
+Version: 1.01
 License: GPLv2  or later
 */
 class automatic_page_numbers_pagenavi {
@@ -145,6 +145,10 @@ You can set translation and options in the settings below:<BR>
 </p>
 
 </form>
+<BR><BR>
+<p>
+<strong><font size=4 color="#DF0101">Are you serious about your website?: </font><strong><a href="http://www.seo101.net/go/seopressornavi/" target="_top">Seopressor Wordpress SEO Plugin, Better, Faster, Higher Ranking!</a>
+</p>
 </div>
 <BR><BR>
 <?php
