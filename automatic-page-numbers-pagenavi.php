@@ -147,7 +147,7 @@ You can set translation and options in the settings below:<BR>
 </form>
 <BR><BR>
 <p>
-<strong><font size=4 color="#DF0101">Are you serious about your website?: </font><strong><a href="http://www.seo101.net/go/seopressornavi/" target="_top">Seopressor Wordpress SEO Plugin, Better, Faster, Higher Ranking!</a>
+Why not check out my blog: <a href="http://www.seo101.net">seo101.net</a>
 </p>
 </div>
 <BR><BR>
