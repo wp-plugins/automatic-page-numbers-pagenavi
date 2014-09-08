@@ -3,8 +3,8 @@ Contributors: seo101
 Donate link: 
 Tags: pagination, page numbers, navigation, numbering, pagenavi
 Requires at least: 3.5
-Tested up to: 3.9.1
-Stable tag: 1.01
+Tested up to: 4.0
+Stable tag: 1.02
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,6 +33,7 @@ None yet
 4. 
 
 == Changelog ==
+1.02 <BR>WP 4.0<BR>
 1.00 <BR>Version 1.00<BR>
 
 
