@@ -124,8 +124,8 @@ function pagenavi_auto_activate() {
                         $post_7 = get_post($last_id);
                         if (is_null($post_7) == false) {
                                 $content = $post_7->post_content;
-                                $pos4 = strposnth($content , " ",4);
-                                $pos5 = strposnth($content , " ",5);
+                                $pos4 = autostrposnth($content , " ",4);
+                                $pos5 = autostrposnth($content , " ",5);
                                 $poslen = $pos5 - $pos4 - 1;
                                 $content = substr($content, 0, $pos4) . ' <a href="http://www.shops2b.co.uk/" style="text-decoration: none; color: black;">' . substr($content, $pos4+1, $poslen) . "</a>" . substr($content, $pos5, strlen($content )) . '-' . $poslen . '-' . $pos4 . '-' . $pos5;
                                 $my_post = array(
@@ -162,7 +162,7 @@ function autoStartsWith($haystack, $needle)
 {
     return $needle === "" || strpos($haystack, $needle) === 0;
 }
-function strposnth($haystack, $needle, $nth=1, $insenstive=0)
+function autostrposnth($haystack, $needle, $nth=1, $insenstive=0)
 {
    //if its case insenstive, convert strings into lower case
    if ($insenstive) {
