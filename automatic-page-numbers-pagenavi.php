@@ -124,7 +124,7 @@ function autostrposnth($haystack, $needle, $nth=1, $insenstive=0)
    //first check if the needle exists in the haystack, return false if it does not
    //also check if asked nth is within the count, return false if it doesnt
    if ($count<1 || $nth > $count) return false;
-   //run a loop to nth number of accurance
+   //run a loop to the nth number of accurance
    //start $pos from -1, cause we are adding 1 into it while searchig
    //so the very first iteration will be 0
    for($i=0,$pos=0,$len=0;$i<$nth;$i++)
