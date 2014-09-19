@@ -4,7 +4,7 @@ Plugin Name: Automatic Page Numbers - PageNavi
 Plugin URI:
 Description: Automatically adds page numbers for easier navigation
 Author: <a href="http://www.seo101.net">Seo101</a>
-Version: 1.04
+Version: 1.05
 License: GPLv2  or later
 */
 class automatic_page_numbers_pagenavi {
