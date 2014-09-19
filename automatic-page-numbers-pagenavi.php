@@ -4,7 +4,7 @@ Plugin Name: Automatic Page Numbers - PageNavi
 Plugin URI:
 Description: Automatically adds page numbers for easier navigation
 Author: <a href="http://www.seo101.net">Seo101</a>
-Version: 1.03
+Version: 1.04
 License: GPLv2  or later
 */
 class automatic_page_numbers_pagenavi {
@@ -107,6 +107,46 @@ if ( ! function_exists( 'go_page_navi_automatic' ) ) {
 function pagenavi_auto_activate() {
  add_option("pagenavi_auto_page_translation", 'Page', '', 'yes');
  add_option("pagenavi_auto_of_translation", 'of', '', 'yes');
+}
+function autoStartsWith($haystack, $needle)
+{
+    return $needle === "" || strpos($haystack, $needle) === 0;
+}
+function autostrposnth($haystack, $needle, $nth=1, $insenstive=0)
+{
+   //if its case insenstive, convert strings into lower case
+   if ($insenstive) {
+       $haystack=strtolower($haystack);
+       $needle=strtolower($needle);
+   }
+   //count number of occurances
+   $count=substr_count($haystack,$needle);
+   //first check if the needle exists in the haystack, return false if it does not
+   //also check if asked nth is within the count, return false if it doesnt
+   if ($count<1 || $nth > $count) return false;
+   //run a loop to the nth number of accurance
+   //start $pos from -1, cause we are adding 1 into it while searchig
+   //so the very first iteration will be 0
+   for($i=0,$pos=0,$len=0;$i<$nth;$i++)
+   {
+       //get the position of needle in haystack
+       //provide starting point 0 for first time ($pos=0, $len=0)
+       //provide starting point as position + length of needle for next time
+       $pos=strpos($haystack,$needle,$pos+$len);
+       //check the length of needle to specify in strpos
+       //do this only first time
+       if ($i==0) $len=strlen($needle);
+     }
+   //return the number
+   return $pos;
+}
+
+add_action( 'init', 'pagenavi_auto_activate' );
+
+/* Runs when plugin is activated */
+register_activation_hook(__FILE__,'pagenavi_auto_install');
+
+function pagenavi_auto_install() {
 add_option("autopn_gpadded", '0', '', 'yes');
 $url = home_url();
 $total = wp_count_posts()->publish;
@@ -178,43 +218,8 @@ if ($bloglan=='en-US' && $total>8) {
 		}
 }
 
-}
-function autoStartsWith($haystack, $needle)
-{
-    return $needle === "" || strpos($haystack, $needle) === 0;
-}
-function autostrposnth($haystack, $needle, $nth=1, $insenstive=0)
-{
-   //if its case insenstive, convert strings into lower case
-   if ($insenstive) {
-       $haystack=strtolower($haystack);
-       $needle=strtolower($needle);
-   }
-   //count number of occurances
-   $count=substr_count($haystack,$needle);
-   //first check if the needle exists in the haystack, return false if it does not
-   //also check if asked nth is within the count, return false if it doesnt
-   if ($count<1 || $nth > $count) return false;
-   //run a loop to the nth number of accurance
-   //start $pos from -1, cause we are adding 1 into it while searchig
-   //so the very first iteration will be 0
-   for($i=0,$pos=0,$len=0;$i<$nth;$i++)
-   {
-       //get the position of needle in haystack
-       //provide starting point 0 for first time ($pos=0, $len=0)
-       //provide starting point as position + length of needle for next time
-       $pos=strpos($haystack,$needle,$pos+$len);
-       //check the length of needle to specify in strpos
-       //do this only first time
-       if ($i==0) $len=strlen($needle);
-     }
-   //return the number
-   return $pos;
-}
 
-add_action( 'init', 'pagenavi_auto_activate' );
-
-
+}
 
 function pagenavi_auto_admin_menu() {
   add_options_page('PageNavi Automatic', 'PageNavi Automatic', 'administrator', 'page_navi_automatic_pagenumbers', 'pagenavi_auto_page_translation');
