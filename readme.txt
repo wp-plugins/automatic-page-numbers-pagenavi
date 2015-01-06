@@ -3,7 +3,7 @@ Contributors: seo101
 Donate link: 
 Tags: pagination, page numbers, navigation, numbering, pagenavi
 Requires at least: 3.5
-Tested up to: 4.0
+Tested up to: 4.1
 Stable tag: 1.05
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -14,7 +14,7 @@ Automatically adds page numbers for easier navigation.
 
 Automatically adds page numbers for easier navigation.
 
-Plugin homepage: <a href="http://www.seo101.net/automatic-page-numbers-pagenavi-wordpress/">http://www.seo101.net/automatic-page-numbers-pagenavi-wordpress/</a>
+Plugin homepage: <a href="http://www.seo101.net/wordpress-plugins/automatic-page-numbers-pagenavi-wordpress/">http://www.seo101.net/wordpress-plugins/automatic-page-numbers-pagenavi-wordpress/</a>
 
 == Installation ==
 
